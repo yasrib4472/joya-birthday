@@ -107,13 +107,13 @@
 
 — 7236330😎
 
-  </div>  <!-- Audio element without autoplay --><audio id="bg-music" src="romantic.mp3" loop></audio>
-
-  <footer>
+  </div>  <footer>
     JOYA, এই দিনটি শুধু তোমার জন্য।<br>
     তোমার জন্মদিনে আমার পক্ষ থেকে অনেক ভালোবাসা।<br>
     🎈🎂🎉
-  </footer>  <script>
+  </footer>  <!-- Audio element: autoplay removed so it starts on click --><audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2021/10/15/audio_6aab3278db.mp3?filename=romantic-piano-10867.mp3" loop></audio>
+
+  <script>
     function toggleLetter() {
       const letter = document.getElementById('letter');
       const music = document.getElementById('bg-music');
@@ -122,7 +122,7 @@
         letter.style.display = 'none';
       } else {
         letter.style.display = 'block';
-
+        // Play music on the first click
         if (music.paused) {
           music.play().catch(e => console.log('Playback blocked:', e));
         }
