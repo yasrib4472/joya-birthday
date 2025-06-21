@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="bn">
+<!DOCTYPE html><html lang="bn">
 <head>
 <meta charset="UTF-8">
 <title>Happy Birthday, JOYA!</title>
@@ -7,7 +6,10 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap');
 * {margin:0; padding:0; box-sizing:border-box;}
-body,html {height:100%; font-family:'Poppins',sans-serif; overflow:hidden; color:#fff;}
+body,html {
+  height:100%; font-family:'Poppins',sans-serif;
+  overflow:hidden; color:#fff;
+}
 #bg-video {
   position:fixed; right:0; bottom:0;
   min-width:100%; min-height:100%; object-fit:cover;
@@ -36,6 +38,7 @@ p.subtitle {
   border:4px solid #ff497c;
   box-shadow:0 0 20px #ff497caa;
   margin:30px auto;
+  max-width:80vw; max-height:80vw;
 }
 #show-letter-btn {
   background:#ff497c; border:none; padding:1em 2.5em;
@@ -75,64 +78,44 @@ footer {
 <body>
 <video autoplay muted loop id="bg-video" src="https://cdn.pixabay.com/video/2022/03/15/video-7025c2dbca.mp4"></video>
 <div id="overlay"></div>
-
 <div class="container">
   <h1>Happy Birthday, JOYA! 🎉</h1>
   <p class="subtitle">তোমার হাসি আমার দিনের আলো — আজকের দিনটা তোমার মতোই স্পেশাল হোক।</p>
+  <div id="birthday-countdown" style="margin-top: 25px; font-size: 1.3rem; color: #ffddee; text-shadow: 0 0 8px #ff497caa;">
+    JOYA-র জন্মদিন আসতে বাকি: <span id="countdown"></span> ⏳
+  </div>
   <img id="photo" src="./joya.png" alt="Joya's Photo" />
-  <button id="show-letter-btn"onclick="toggleLetter()">একটা ছোট্ট মেসেজ পড়ো</button>
+  <button id="show-letter-btn" onclick="toggleLetter()">একটা ছোট্ট মেসেজ পড়ো</button>
   <div id="letter"></div>
 </div>
-
 <footer>JOYA, এই দিনটি শুধু তোমার জন্য! ভালো থেকো আর খুশিতে থেকো! 🎈🎂🎉</footer>
 <audio id="bg-music" src="./bg-music.mp3" autoplay loop></audio>
-
 <script>
-const letterText = `হ্যালো,
-
-এই ছোট্ট ওয়েবসাইটটা বানিয়েছি তোমার জন্য।
-তোমার হাসিটা আমার খুব ভালো লাগে!
+const letterText = `হ্যালো,এই ছোট্ট ওয়েবসাইটটা বানিয়েছি তোমার জন্য। তোমার হাসিটা আমার খুব ভালো লাগে!
 
 শুভ জন্মদিন, JOYA! 🌷🎂
 
 — 7236330 😎`;
 
-function typeLetter(text, element) {
-  element.innerHTML = '';
-  let index = 0;
-  const interval = setInterval(() => {
-    element.innerHTML += text[index];
-    index++;
-    if (index >= text.length) clearInterval(interval);
-  }, 50);
-}
-function toggleLetter() {
-  const letter = document.getElementById('letter');
-  if (letter.style.display === 'block') {
-    letter.style.display = 'none';
-  } else {
-    letter.style.display = 'block';
-    typeLetter(letterText, letter);
-  }
-}
-function createHeartBubble() {
-  const heart = document.createElement('div');
-  heart.classList.add('heart-bubble');
-  heart.style.left = Math.random() * window.innerWidth + 'px';
-  heart.style.animationDuration = (4 + Math.random() * 3) + 's';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeartBubble, 700);
-function createStar() {
-  const star = document.createElement('div');
-  star.classList.add('star');
-  star.style.left = Math.random() * window.innerWidth + 'px';
-  star.style.animationDuration = (3 + Math.random() * 3) + 's';
-  document.body.appendChild(star);
-  setTimeout(() => star.remove(), 6000);
-}
-setInterval(createStar, 300);
-</script>
+function typeLetter(text, element) { element.innerHTML = ''; let index = 0; const interval = setInterval(() => { element.innerHTML += text[index]; index++; if (index >= text.length) clearInterval(interval); }, 50); }
+
+function toggleLetter() { const letter = document.getElementById('letter'); const btn = document.getElementById('show-letter-btn'); if (letter.style.display === 'block') { letter.style.display = 'none'; btn.disabled = false; } else { letter.style.display = 'block'; btn.disabled = true; typeLetter(letterText, letter); } }
+
+function createHeartBubble() { const heart = document.createElement('div'); heart.classList.add('heart-bubble'); heart.style.left = Math.random() * window.innerWidth + 'px'; heart.style.animationDuration = (4 + Math.random() * 3) + 's'; document.body.appendChild(heart); setTimeout(() => heart.remove(), 6000); } setInterval(createHeartBubble, 700);
+
+function createStar() { const star = document.createElement('div'); star.classList.add('star'); star.style.left = Math.random() * window.innerWidth + 'px'; star.style.animationDuration = (3 + Math.random() * 3) + 's'; document.body.appendChild(star); setTimeout(() => star.remove(), 6000); } setInterval(createStar, 300);
+
+function updateCountdownToBirthday() { const now = new Date(); const bdOffsetMinutes = 6 * 60; const localOffsetMinutes = now.getTimezoneOffset(); const bdTime = new Date(now.getTime() + (bdOffsetMinutes + localOffsetMinutes) * 60 * 1000);
+
+let birthday = new Date(bdTime.getFullYear(), 6, 13, 0, 0, 0); if (bdTime > birthday) birthday.setFullYear(bdTime.getFullYear() + 1);
+
+const diff = birthday - bdTime; const days = Math.floor(diff / (1000 * 60 * 60 * 24)); const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+document.getElementById("countdown").textContent = ${days} দিন ${hours} ঘণ্টা ${minutes} মিনিট ${seconds} সেকেন্ড;
+
+if (diff <= 1000) { setTimeout(() => { alert('🎉 শুভ জন্মদিন JOYA! 🎂'); }, 1000); } }
+
+setInterval(updateCountdownToBirthday, 1000); updateCountdownToBirthday(); </script>
+
 </body>
 </html>
