@@ -1,138 +1,131 @@
-<!DOCTYPE html>
-<html lang="bn">
+<!DOCTYPE html><html lang="bn">
 <head>
-<meta charset="UTF-8">
-<title>Happy Birthday, JOYA!</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap');
-* {margin:0; padding:0; box-sizing:border-box;}
-body,html {height:100%; font-family:'Poppins',sans-serif; overflow:hidden; color:#fff;}
-#bg-video {
-  position:fixed; right:0; bottom:0;
-  min-width:100%; min-height:100%; object-fit:cover;
-  z-index:-2; filter:brightness(0.7);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, JOYA!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      font-family: 'Dancing Script', cursive;
+      color: #4a148c;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.2em;
+      animation: fadeInDown 2s ease forwards;
+    }
+    p.subtitle {
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 2em;
+      color: #7b1fa2;
+      animation: fadeIn 3s ease forwards;
+    }
+    #photo-placeholder {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: #ce93d8;
+      margin: 0 auto 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      user-select: none;
+      animation: fadeIn 4s ease forwards;
+    }
+    #letter {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 1.5em;
+      background: #f8bbd0cc;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #ba68c8;
+      color: #4a148c;
+      font-size: 1.2rem;
+      display: none;
+      cursor: default;
+      animation: fadeIn 5s ease forwards;
+      white-space: pre-line;
+    }
+    #show-letter-btn {
+      background: #7b1fa2;
+      border: none;
+      padding: 0.8em 1.5em;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 3em;
+      box-shadow: 0 4px 10px #ba68c8aa;
+      transition: background-color 0.3s ease;
+    }
+    #show-letter-btn:hover {
+      background-color: #4a148c;
+    }
+    footer {
+      font-size: 1.1rem;
+      color: #6a1b9a;
+      animation: fadeInUp 3s ease forwards;
+      margin-top: auto;
+    }/* Animations */
+@keyframes fadeInDown {
+  0% {opacity: 0; transform: translateY(-20px);}  
+  100% {opacity: 1; transform: translateY(0);} 
 }
-#overlay {
-  position:fixed; top:0; left:0; right:0; bottom:0;
-  background:rgba(220,20,60,0.4);
-  z-index:-1; backdrop-filter:blur(5px);
+@keyframes fadeInUp {
+  0% {opacity: 0; transform: translateY(20px);}  
+  100% {opacity: 1; transform: translateY(0);} 
 }
-.container {
-  height:100vh; display:flex; flex-direction:column;
-  justify-content:center; align-items:center;
-  text-align:center; padding:20px;
+@keyframes fadeIn {
+  from {opacity: 0;} to {opacity: 1;}  
 }
-h1 {
-  font-family:'Great Vibes',cursive; font-size:5rem;
-  text-shadow:0 0 15px #ff497c;
-}
-p.subtitle {
-  font-size:1.6rem; margin-top:15px;
-  text-shadow:0 0 10px #ff497c88;
-}
-#photo {
-  width:260px; height:260px; border-radius:50%; 
-  border:4px solid #ff497c;
-  box-shadow:0 0 20px #ff497caa;
-  margin:30px auto;
-}
-#show-letter-btn {
-  background:#ff497c; border:none; padding:1em 2.5em;
-  border-radius:40px; color:white; font-size:1.3rem;
-  box-shadow:0 6px 20px #ff2a6aaa;
-}
-#letter {
-  max-width:400px; margin:20px auto 0; padding:2em 2.5em;
-  background:rgba(255 255 255 / 0.2);
-  border-radius:20px; box-shadow:0 0 30px #ff497caa;
-  color:#fff; font-size:1.3rem; display:none;
-}
-footer {
-  position:absolute; bottom:15px; width:100%; text-align:center;
-  font-size:1.1rem; color:#ff8dbb;
-}
-.heart-bubble {
-  position:fixed; bottom:-40px;
-  width:18px; height:18px;
-  background-color:#ff2a6a;
-  clip-path:path('M9,3 C11,0 15,0 17,3 C19,6 17,9 9,17 C1,9 -1,6 1,3 C3,0 7,0 9,3 Z');
-  animation:riseUp 6s linear infinite;
-}
-.star {
-  position:fixed;
-  top:-2px;
-  width:3px;
-  height:3px;
-  background:#fff;
-  border-radius:50%;
-  animation:starFall 4s linear infinite;
-}
-@keyframes riseUp {to{transform:translateY(-700px) scale(1.5); opacity:0;}}
-@keyframes starFall {to{transform:translateY(100vh); opacity:0;}}
-</style>
+
+  </style>
 </head>
 <body>
-<video autoplay muted loop id="bg-video" src="https://cdn.pixabay.com/video/2022/03/15/video-7025c2dbca.mp4"></video>
-<div id="overlay"></div>
-
-<div class="container">
   <h1>Happy Birthday, JOYA! 🎉</h1>
-  <p class="subtitle">তোমার হাসি আমার দিনের আলো — আজকের দিনটা তোমার মতোই স্পেশাল হোক।</p>
-  <img id="photo" src="./joya.png" alt="Joya's Photo" />
-  <button id="show-letter-btn"onclick="toggleLetter()">একটা ছোট্ট মেসেজ পড়ো</button>
-  <div id="letter"></div>
-</div>
+  <p class="subtitle">তোমার হাসি আমার দিনের আলো — আজকের দিনটা তোমার মতোই স্পেশাল হোক।</p>  <div id="photo-placeholder" onclick="alert('এখানে তুমি নিজের ছবি যোগ করতে পারো!')">
+    ছবি এখানে যোগ করো (Click)
+  </div><button id="show-letter-btn" onclick="toggleLetter()">একটা ছোট্ট মেসেজ পড়ো</button>
 
-<footer>JOYA, এই দিনটি শুধু তোমার জন্য! ভালো থেকো আর খুশিতে থেকো! 🎈🎂🎉</footer>
-<audio id="bg-music" src="./bg-music.mp3" autoplay loop></audio>
+  <div id="letter">
+    হ্যালো,  এই ছোট্ট ওয়েবসাইটটা বানিয়েছি তোমার জন্য।  
+তোমার হাসি আমার কাছে সবচেয়ে সুন্দর জিনিস।  
 
-<script>
-const letterText = `হ্যালো,
+শুভ জন্মদিন!  
 
-এই ছোট্ট ওয়েবসাইটটা বানিয়েছি তোমার জন্য।
-তোমার হাসিটা আমার খুব ভালো লাগে!
+— 7236330😎
 
-শুভ জন্মদিন, JOYA! 🌷🎂
+  </div>  <!-- Music element: autoplay removed so the browser doesn't block it --><audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2021/10/15/audio_6aab3278db.mp3?filename=romantic-piano-10867.mp3" loop></audio>
 
-— 7236330 😎`;
+  <script>
+    function toggleLetter() {
+      const letter = document.getElementById('letter');
+      const music = document.getElementById('bg-music');
 
-function typeLetter(text, element) {
-  element.innerHTML = '';
-  let index = 0;
-  const interval = setInterval(() => {
-    element.innerHTML += text[index];
-    index++;
-    if (index >= text.length) clearInterval(interval);
-  }, 50);
-}
-function toggleLetter() {
-  const letter = document.getElementById('letter');
-  if (letter.style.display === 'block') {
-    letter.style.display = 'none';
-  } else {
-    letter.style.display = 'block';
-    typeLetter(letterText, letter);
-  }
-}
-function createHeartBubble() {
-  const heart = document.createElement('div');
-  heart.classList.add('heart-bubble');
-  heart.style.left = Math.random() * window.innerWidth + 'px';
-  heart.style.animationDuration = (4 + Math.random() * 3) + 's';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeartBubble, 700);
-function createStar() {
-  const star = document.createElement('div');
-  star.classList.add('star');
-  star.style.left = Math.random() * window.innerWidth + 'px';
-  star.style.animationDuration = (3 + Math.random() * 3) + 's';
-  document.body.appendChild(star);
-  setTimeout(() => star.remove(), 6000);
-}
-setInterval(createStar, 300);
-</script>
-</body>
+      if (letter.style.display === 'block') {
+        letter.style.display = 'none';
+      } else {
+        letter.style.display = 'block';
+
+        // Try to play music the first time user interacts
+        if (music.paused) {
+          music.play().catch(() => {
+            console.log('Playback blocked by the browser');
+          });
+        }
+      }
+    }
+  </script></body>
 </html>
