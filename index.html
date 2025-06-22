@@ -1,138 +1,263 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Happy Birthday, JOYA!</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap');
-* {margin:0; padding:0; box-sizing:border-box;}
-body,html {height:100%; font-family:'Poppins',sans-serif; overflow:hidden; color:#fff;}
-#bg-video {
-  position:fixed; right:0; bottom:0;
-  min-width:100%; min-height:100%; object-fit:cover;
-  z-index:-2; filter:brightness(0.7);
-}
-#overlay {
-  position:fixed; top:0; left:0; right:0; bottom:0;
-  background:rgba(220,20,60,0.4);
-  z-index:-1; backdrop-filter:blur(5px);
-}
-.container {
-  height:100vh; display:flex; flex-direction:column;
-  justify-content:center; align-items:center;
-  text-align:center; padding:20px;
-}
-h1 {
-  font-family:'Great Vibes',cursive; font-size:5rem;
-  text-shadow:0 0 15px #ff497c;
-}
-p.subtitle {
-  font-size:1.6rem; margin-top:15px;
-  text-shadow:0 0 10px #ff497c88;
-}
-#photo {
-  width:260px; height:260px; border-radius:50%; 
-  border:4px solid #ff497c;
-  box-shadow:0 0 20px #ff497caa;
-  margin:30px auto;
-}
-#show-letter-btn {
-  background:#ff497c; border:none; padding:1em 2.5em;
-  border-radius:40px; color:white; font-size:1.3rem;
-  box-shadow:0 6px 20px #ff2a6aaa;
-}
-#letter {
-  max-width:400px; margin:20px auto 0; padding:2em 2.5em;
-  background:rgba(255 255 255 / 0.2);
-  border-radius:20px; box-shadow:0 0 30px #ff497caa;
-  color:#fff; font-size:1.3rem; display:none;
-}
-footer {
-  position:absolute; bottom:15px; width:100%; text-align:center;
-  font-size:1.1rem; color:#ff8dbb;
-}
-.heart-bubble {
-  position:fixed; bottom:-40px;
-  width:18px; height:18px;
-  background-color:#ff2a6a;
-  clip-path:path('M9,3 C11,0 15,0 17,3 C19,6 17,9 9,17 C1,9 -1,6 1,3 C3,0 7,0 9,3 Z');
-  animation:riseUp 6s linear infinite;
-}
-.star {
-  position:fixed;
-  top:-2px;
-  width:3px;
-  height:3px;
-  background:#fff;
-  border-radius:50%;
-  animation:starFall 4s linear infinite;
-}
-@keyframes riseUp {to{transform:translateY(-700px) scale(1.5); opacity:0;}}
-@keyframes starFall {to{transform:translateY(100vh); opacity:0;}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
+    <meta name="github" content="https://github.com/Aoudumber-Bade">
+    <title>Joya's Birthday</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<video autoplay muted loop id="bg-video" src="https://cdn.pixabay.com/video/2022/03/15/video-7025c2dbca.mp4"></video>
-<div id="overlay"></div>
+    <div id="wrapper">
+        <div class="flag__birthday">
+            <img src="./images/1.png" alt="" width="350" class="flag__left">
+            <img src="./images/1.png" alt="" width="350" class="flag__right">
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="title">
+                    <h1 class="happy">
+                        <span style="--t: 4s;">H</span>
+                        <span style="--t: 4.2s;">a</span>
+                        <span style="--t: 4.4s;">p</span>
+                        <span style="--t: 4.6s;">p</span>
+                        <span style="--t: 4.8s;">y</span>
+                    </h1>
+                    <h1 class="birthday">
+                        <span style="--t: 5s;">B</span>
+                        <span style="--t: 5.2s;">i</span>
+                        <span style="--t: 5.4s;">r</span>
+                        <span style="--t: 5.6s;">t</span>
+                        <span style="--t: 5.8s;">h</span>
+                        <span style="--t: 6s;">d</span>
+                        <span style="--t: 6.2s;">a</span>
+                        <span style="--t: 6.4s;">y</span>
+                    </h1>
+                    <div class="hat">
+                        <img src="./images/hat.png" alt="" width="130">
+                    </div>
+                </div>
+                <div class="date__of__birth">
+                    <span></span>
+                </div>
+                <div class="btn">
+                    <button id="btn__letter">
+                        <div class="mail">
+                            Click Here Joya
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                    </button>
 
-<div class="container">
-  <h1>Happy Birthday, JOYA! 🎉</h1>
-  <p class="subtitle">তোমার হাসি আমার দিনের আলো — আজকের দিনটা তোমার মতোই স্পেশাল হোক।</p>
-  <img id="photo" src="./joya.png" alt="Joya's Photo" />
-  <button id="show-letter-btn"onclick="toggleLetter()">একটা ছোট্ট মেসেজ পড়ো</button>
-  <div id="letter"></div>
-</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="box__account">
+                    <div class="image">
+                        <img src="./images/unnamed.png" alt="">
+                    </div>
+                    <div class="name">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>DEAR JOYA</span>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="balloon_one">
+                        <img width="100px" src="./images/balloon1.png" alt="">
+                    </div>
+                    <div class="balloon_two">
+                        <img width="100px" src="./images/balloon2.png" alt="">
+                    </div>
+                </div>
+                <div class="cricle">
+                    <div class="text__cricle">
+                        <span style="--i: 1;">h</span>
+                        <span style="--i: 2;">a</span>
+                        <span style="--i: 3;">p</span>
+                        <span style="--i: 4;">p</span>
+                        <span style="--i: 5;">y</span>
+                        <span style="--i: 6;">-</span>
+                        <span style="--i: 7;">b</span>
+                        <span style="--i: 8;">i</span>
+                        <span style="--i: 9;">r</span>
+                        <span style="--i: 10;">t</span>
+                        <span style="--i: 11;">h</span>
+                        <span style="--i: 12;">d</span>
+                        <span style="--i: 13;">a</span>
+                        <span style="--i: 14;">y</span>
+                        <span style="--i: 15;">-</span>
+                    </div>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <div class="decorate_star star1" style="--t: 15s;"></div>
+        <div class="decorate_star star2" style="--t: 15.2s;"></div>
+        <div class="decorate_star star3" style="--t: 15.4s;"></div>
+        <div class="decorate_star star4" style="--t: 15.6s;"></div>
+        <div class="decorate_star star5" style="--t: 15.8s;"></div>
+        <div class="decorate_flower--one" style="--t: 15s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_flower--two" style="--t: 15.3s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_flower--three" style="--t: 15.6s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_bottom">
+            <img src="./images/decorate.png" alt="" width="100">
+        </div>
+        <div class="smiley__icon">
+            <img src="./images/smiley_icon.png" alt="" width="100">
+        </div>
 
-<footer>JOYA, এই দিনটি শুধু তোমার জন্য! ভালো থেকো আর খুশিতে থেকো! 🎈🎂🎉</footer>
-<audio id="bg-music" src="./bg-music.mp3" autoplay loop></audio>
 
-<script>
-const letterText = `হ্যালো,
+        <div class="boxMail">
+            <i class="fa-solid fa-xmark"></i>
+            <div class="boxMail-container">
+                <div class="card1">
+                    <div class="userImg">
+                        <img src="images/unnamed.png" alt="">
+                    </div>
+                    <h4 class="username">To: Joya 💖<span class="underline"></span></h4>
 
-এই ছোট্ট ওয়েবসাইটটা বানিয়েছি তোমার জন্য।
-তোমার হাসিটা আমার খুব ভালো লাগে!
+                    <h3>Happy Birthday</h3>
+                    <div class="imageCute">
+                        <img src="cute1.png" alt="">
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card2-content">
+                        <h3>To You!</h3>
+                        <h2>Happy birthday 🥳🎂🥳 chanda the day you come into my life I was not really much attached to
+                            you but day by day you became close to my heart . And now you are truly my younger sister. I
+                            wish I could remove some of the pain from your life which you are bearing alone. But you're
+                            always welcome 🤗 you can talk anytime you want to talk specially those which you can't say
+                            to others. And this year your all dreams come true . I wish that your
+                            brother could wish you but if couldn't wish on him behalf I am wishing you happy birthday
+                            🎈🎂🎈 sana . Don't be Sad ok be happy 😌
+                        </h2>
 
-শুভ জন্মদিন, JOYA! 🌷🎂
+                        <div class="imageCute2">
+                            <img src="cute2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-— 7236330 😎`;
-
-function typeLetter(text, element) {
-  element.innerHTML = '';
-  let index = 0;
-  const interval = setInterval(() => {
-    element.innerHTML += text[index];
-    index++;
-    if (index >= text.length) clearInterval(interval);
-  }, 50);
-}
-function toggleLetter() {
-  const letter = document.getElementById('letter');
-  if (letter.style.display === 'block') {
-    letter.style.display = 'none';
-  } else {
-    letter.style.display = 'block';
-    typeLetter(letterText, letter);
-  }
-}
-function createHeartBubble() {
-  const heart = document.createElement('div');
-  heart.classList.add('heart-bubble');
-  heart.style.left = Math.random() * window.innerWidth + 'px';
-  heart.style.animationDuration = (4 + Math.random() * 3) + 's';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeartBubble, 700);
-function createStar() {
-  const star = document.createElement('div');
-  star.classList.add('star');
-  star.style.left = Math.random() * window.innerWidth + 'px';
-  star.style.animationDuration = (3 + Math.random() * 3) + 's';
-  document.body.appendChild(star);
-  setTimeout(() => star.remove(), 6000);
-}
-setInterval(createStar, 300);
-</script>
 </body>
+<script>
+    let datetxt = "13  July";
+    let datatxtletter = "My love. You are a very special girl. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
+    let titleLetter = "To you";
+    let charArrDate = datetxt.split('');
+    let charArrDateLetter = datatxtletter.split('');
+    let charArrTitle = titleLetter.split('');
+    let currentIndex = 0;
+    let currentIndexLetter = 0;
+    let currentIndexTitle = 0;
+    let date__of__birth = document.querySelector(".date__of__birth span");
+    let text__letter = document.querySelector(".text__letter p");
+    setTimeout(function () {
+        timeDatetxt = setInterval(function () {
+            if (currentIndex < charArrDate.length) {
+                date__of__birth.textContent += charArrDate[currentIndex];
+                currentIndex++;
+            }
+            else {
+                let i = document.createElement("i");
+                i.className = "fa-solid fa-star"
+                document.querySelector(".date__of__birth").prepend(i)
+                document.querySelector(".date__of__birth").appendChild(i.cloneNode(true))
+                clearInterval(timeDatetxt)
+            }
+        }, 100)
+    }, 12000)
+
+    var intervalContent;
+    var intervalTitle;
+    $("#btn__letter").on("click", function () {
+        $(".box__letter").slideDown()
+        setTimeout(function () {
+            $(".letter__border").slideDown();
+        }, 1000)
+        setTimeout(function () {
+            intervalTitle = setInterval(function () {
+                if (currentIndexTitle < charArrTitle.length) {
+                    document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
+                    let i = document.createElement("i");
+                    i.className = "fa-solid fa-heart"
+                    document.querySelector(".title__letter").appendChild(i)
+                    currentIndexTitle++;
+                }
+                else {
+                    clearInterval(intervalTitle)
+                }
+            }, 100)
+        }, 2000)
+        setTimeout(function () {
+            document.querySelector("#heart__letter").classList.add("animationOp");
+            document.querySelector(".love__img").classList.add("animationOp");
+            document.querySelector("#mewmew").classList.add("animationOp");
+        }, 2800)
+        setTimeout(function () {
+            document.querySelectorAll(".heart").forEach((item) => {
+                item.classList.add("animation")
+            })
+        }, 3500)
+        setTimeout(function () {
+            intervalContent = setInterval(function () {
+                if (currentIndexLetter < charArrDateLetter.length) {
+                    text__letter.textContent += charArrDateLetter[currentIndexLetter];
+                    currentIndexLetter++;
+                }
+                else {
+                    clearInterval(intervalContent)
+                }
+            }, 50)
+        }, 6000)
+    })
+    $(".close").on("click", function () {
+        clearInterval(intervalContent)
+        document.querySelector(".title__letter").textContent = "";
+        text__letter.textContent = "";
+        currentIndexLetter = 0
+        currentIndexTitle = 0
+        document.querySelector("#heart__letter").classList.remove("animationOp");
+        document.querySelector(".love__img").classList.remove("animationOp");
+        document.querySelector("#mewmew").classList.remove("animationOp");
+        document.querySelectorAll(".heart").forEach((item) => {
+            item.classList.remove("animation")
+        })
+        $(".box__letter").slideUp();
+        $(".letter__border").slideUp();
+    })
+
+
+
+    let mailBox = document.querySelector('.mail')
+    let boxmail = document.querySelector('.boxMail')
+    var close = document.querySelector('.fa-xmark')
+    mailBox.onclick = function () {
+        mailBox.classList.toggle('active')
+        boxmail.classList.add('active')
+    }
+
+    close.addEventListener('click', function () {
+        boxmail.classList.remove('active')
+    })
+</script>
+
 </html>
