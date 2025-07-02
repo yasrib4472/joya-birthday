@@ -19,55 +19,6 @@
 </head>
 
 <body>
-<!-- Font Awesome লিঙ্ক (HEAD এর মধ্যে) -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
-<!-- বাটন -->
-<button id="music-btn" onclick="toggleMusic()" aria-label="Toggle music" style="
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  padding: 12px;
-  font-size: 20px;
-  border: none;
-  border-radius: 50%;
-  background-color: transparent;
-  color: #800080;
-  cursor: pointer;
-  box-shadow: 0 0 10px #A020F0;
-  transition: all 0.3s ease;
-  z-index: 9999;
-">
-  <i class="fas fa-volume-mute"></i> <!-- ডিফল্ট আইকন -->
-</button>
-
-<!-- অডিও ফাইল -->
-<audio id="bg-music" loop hidden>
-  <source src="images/music.mp3" type="audio/mpeg">
-  আপনার ব্রাউজার অডিও সাপোর্ট করে না।
-</audio>
-
-<!-- স্ক্রিপ্ট -->
-<script>
-  const music = document.getElementById('bg-music');
-  const btnIcon = document.querySelector('#music-btn i');
-  let isPlaying = false;
-
-  function toggleMusic() {
-    if (isPlaying) {
-      music.pause();
-      btnIcon.classList.remove('fa-volume-up');
-      btnIcon.classList.add('fa-volume-mute');
-    } else {
-      music.play();
-      btnIcon.classList.remove('fa-volume-mute');
-      btnIcon.classList.add('fa-volume-up');
-    }
-    isPlaying = !isPlaying;
-  }
     <div id="wrapper">
         <div class="flag__birthday">
             <img src="./images/1.png" alt="" width="350" class="flag__left">
